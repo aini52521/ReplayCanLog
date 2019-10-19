@@ -7,6 +7,7 @@
     数据桢类型：type
     数据：data
 """
+alldata = []
 class can_t():
     def __init__(self):
         self.time = 0
@@ -16,12 +17,9 @@ class can_t():
         self.channel = 0
         self.data = []
 
-
-if __name__ == "__main__":
-    #file = open("test_short.log")
-    file = open("test.log")
+def readlog():
     onedata = can_t()
-    alldata = [] 
+    file = open("test.log")
     for line in file:
        line = line.strip('\n')      #去除转行
        alist = line.split(' ')      #按空格切割
@@ -37,3 +35,7 @@ if __name__ == "__main__":
        #print(alist)
     print(len(alldata))
     file.close()
+
+if __name__ == "__main__":
+    #file = open("test_short.log")
+    readlog()
